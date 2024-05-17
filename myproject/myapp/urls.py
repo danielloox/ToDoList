@@ -3,7 +3,6 @@ from .views import TaskList, PriorityList, TaskDetail, PriorityDetail, SubtaskLi
 
 urlpatterns = [
 
-
     path('tasks/', TaskList.as_view()),
     path('tasks/<int:pk>/', TaskDetail.as_view()),
     path('tasks/subtasks/',SubtaskList.as_view()),
