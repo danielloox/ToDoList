@@ -45,12 +45,12 @@ class PriorityDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class SubtaskList(generics.ListCreateAPIView):
-    serializer_class = SubtaskSerializer
-    permission_classes = [IsOwner]
-
     def get_queryset(self):
-        queryset = Subtask.objects.all()
-        task = self.request.query_params.get('task_id')
-        if task is not None:
-            queryset = queryset.filter(id_task = task)
-        return queryset
+        subtask = self.request.query_params.get('subtask')
+        if subtask is not None:
+            return Subtask.objects.filter(id = subtask)
+        return []
+    serializer_class = SubtaskSerializer
+
+
+
