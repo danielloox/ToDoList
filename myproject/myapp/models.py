@@ -18,13 +18,13 @@ class Task(models.Model):
 class Subtask(models.Model):
     title = models.CharField(max_length=100)
     isDone = models.BooleanField(default=False)
-    id_task = models. ForeignKey('Task', null=True, on_delete=models.CASCADE)
+    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_task = models. ForeignKey('Task', null=False, on_delete=models.CASCADE)
     def __str__(self):
         return self.title
 
 
 class Priority(models.Model):
     name = models.CharField(max_length=100)
-
     def __str__(self):
         return self.name

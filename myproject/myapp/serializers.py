@@ -17,6 +17,7 @@ class PrioritySerializer(serializers.ModelSerializer):
 
 
 class SubtaskSerializer(serializers.ModelSerializer):
+    id_user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Subtask
         fields = '__all__'
