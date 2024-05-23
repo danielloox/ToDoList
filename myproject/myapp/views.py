@@ -21,7 +21,7 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwner]
 
 
-class PriorityList(generics.ListCreateAPIView):
+class PriorityList(generics.ListAPIView):
     queryset = Priority.objects.all()
     serializer_class = PrioritySerializer
 
